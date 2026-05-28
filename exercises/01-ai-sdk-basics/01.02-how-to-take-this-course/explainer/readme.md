@@ -2,11 +2,16 @@ Okay, now you know what we're learning, let's actually look at how you're going 
 
 ## Setting Up the GitHub Repository
 
-So your first job is to clone the [repo](https://github.com/ai-hero-dev/ai-sdk-v5-crash-course) down:
+Before you clone the repo, make sure you have:
+
+- [Node.js](https://nodejs.org/en/download) version 22 or higher
+- [pnpm](https://pnpm.io/installation) version 9.12.3 or higher
+
+So your first job is to clone the [repo](https://github.com/ai-hero-dev/ai-sdk-v6-crash-course) down:
 
 ```bash
-git clone https://github.com/ai-hero-dev/ai-sdk-v5-crash-course.git
-cd ai-sdk-v5-crash-course
+git clone https://github.com/ai-hero-dev/ai-sdk-v6-crash-course.git
+cd ai-sdk-v6-crash-course
 ```
 
 Next, let's install the dependencies via `pnpm install`:
@@ -15,7 +20,7 @@ Next, let's install the dependencies via `pnpm install`:
 pnpm install
 ```
 
-If you don't have PNPM installed, install it first via [this link](https://pnpm.io/installation).
+If you don't have pnpm installed, install it first via [this link](https://pnpm.io/installation).
 
 Next, let's copy the `.env.example` file to `.env`:
 
@@ -55,12 +60,14 @@ Thanks so much for taking the course and I will see you in the next one.
 
 ## Steps To Complete
 
+- [ ] Make sure Node.js 22+ and pnpm 9.12.3+ are installed
+
 - [ ] Clone the GitHub repository to your local machine
   - Clone it locally using your preferred method
-  - [Repo](https://github.com/ai-hero-dev/ai-sdk-v5-crash-course)
+  - [Repo](https://github.com/ai-hero-dev/ai-sdk-v6-crash-course)
 
 - [ ] Install dependencies by running `pnpm install`
-  - If you don't have PNPM, install it first following [this link](https://pnpm.io/installation)
+  - If you don't have pnpm, install it first following [this link](https://pnpm.io/installation)
 
 - [ ] Set up environment variables
   - Copy the `.env.example` file to `.env`

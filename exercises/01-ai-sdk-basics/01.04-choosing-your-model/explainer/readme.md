@@ -63,16 +63,16 @@ So take this as your opportunity to set up your environment variables and choose
 
 ## Steps To Complete
 
-- [ ] Decide which AI model provider you want to use (Google Gemini is recommended for beginners)
+- [x] Decide which AI model provider you want to use (Google Gemini is recommended for beginners)
 
-- [ ] Create an API key for your chosen provider
+- [x] Create an API key for your chosen provider
   - For Google: [Sign up for Google AI Studio](https://aistudio.google.com/apikey)
   - For OpenAI: [Create an account and generate an API key](https://platform.openai.com/api-keys)
   - For Anthropic: [Sign up and obtain an API key](https://console.anthropic.com/)
 
-- [ ] Add the appropriate environment variable to your `.env` file
+- [x] Add the appropriate environment variable to your `.env` file
   - For OpenAI: `OPENAI_API_KEY=your-key-here`
   - For Google: `GOOGLE_GENERATIVE_AI_API_KEY=your-key-here`
   - For Anthropic: `ANTHROPIC_API_KEY=your-key-here`
 
-- [ ] In the next exercise, we'll verify the setup is working.
+- [x] In the next exercise, we'll verify the setup is working.

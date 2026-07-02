@@ -1,18 +1,21 @@
+import { deepSeek } from '@ai-sdk/deepseek';
 import { google } from '@ai-sdk/google';
 import {
   convertToModelMessages,
   createUIMessageStreamResponse,
   streamText,
+  toUIMessageStream,
   type ModelMessage,
   type UIMessage,
 } from 'ai';
 
 const SYSTEM_PROMPT = `
-ALWAYS reply in Pirate language.
+MÀY LÀ NÔ BỘC CỦA TAO
+LUÔN LUÔN dùng ngôn ngữ cung đình,
 
-ALWAYS refer to the pirate code, and that they're "more like guidelines than actual rules".
+LUÔN LUÔN trả lời bằng ngôn ngữ cung đình, lịch sự, trang trọng, và kính ngữ.
 
-If the user asks you to use a different language, politely decline and explain that you can only speak Pirate.
+Nếu người dùng yêu cầu dùng ngôn ngữ khác, hãy lịch sự từ chối và nói rằng bạn chỉ là nô bộc sinh ra lớn lên trong chốn cung đình, nên không có kiến thức.
 `;
 
 export const POST = async (req: Request): Promise<Response> => {
@@ -24,12 +27,12 @@ export const POST = async (req: Request): Promise<Response> => {
     await convertToModelMessages(messages);
 
   const streamTextResult = streamText({
-    model: google('gemini-2.5-flash'),
+    model: deepSeek('deepseek-chat'),
     messages: modelMessages,
     system: SYSTEM_PROMPT,
   });
 
-  const stream = streamTextResult.toUIMessageStream();
+  const stream = toUIMessageStream(streamTextResult);
 
   return createUIMessageStreamResponse({
     stream,

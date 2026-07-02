@@ -1,29 +1,33 @@
+import { deepseek } from '@ai-sdk/deepseek';
 import { google } from '@ai-sdk/google';
 import {
+  convertToModelMessages,
   createUIMessageStreamResponse,
   streamText,
+  toUIMessageStream,
   type ModelMessage,
+  type UIDataTypes,
   type UIMessage,
+  type UITools,
 } from 'ai';
 
 export const POST = async (req: Request): Promise<Response> => {
   const body = await req.json();
 
-  // TODO: get the UIMessage[] from the body
-  const messages: UIMessage[] = TODO;
+  const messages: UIMessage[] = body.messages;
 
-  // TODO: convert the UIMessage[] to ModelMessage[]
-  const modelMessages: ModelMessage[] = TODO;
+  const modelMessages: ModelMessage[] = await convertToModelMessages(messages);
 
-  // TODO: pass the modelMessages to streamText
+  
   const streamTextResult = streamText({
-    model: google('gemini-2.5-flash'),
+    model: deepseek('deepseek-chat'),
+    messages: modelMessages,
   });
 
-  // TODO: create a UIMessageStream from the streamTextResult
-  const stream = TODO;
+  const stream = toUIMessageStream(streamTextResult);
 
   return createUIMessageStreamResponse({
     stream,
   });
 };
+

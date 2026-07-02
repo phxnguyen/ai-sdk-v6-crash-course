@@ -1,8 +1,9 @@
+import { deepseek } from '@ai-sdk/deepseek';
 import { google } from '@ai-sdk/google';
-import { streamText } from 'ai';
+import { generateText, Output, streamText } from 'ai';
 import z from 'zod';
 
-const model = google('gemini-2.5-flash');
+const model = deepseek('deepseek-chat');
 
 const stream = streamText({
   model,
@@ -24,7 +25,15 @@ const finalText = await stream.text;
 //   the schema: z.object({
 //     facts: z.array(z.string()).describe('The facts about the imaginary planet. Write as if you are a scientist.'),
 //   })
-const factsResult = TODO;
+const factsResult = await generateText({
+  model,
+  prompt: `Give me the first paragraph of a story about an imaginary planet. Here is the story: ${finalText}`,
+  output: Output.object({
+    schema: z.object({
+      facts: z.array(z.string()).describe('The facts about the imaginary planet. Write as if you are a scientist.'),
+    }),
+  }),
+});
 
-// TODO: Log the output of the result
+
 console.log(factsResult.output);
